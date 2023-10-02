@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Infotel" description="Information sur l'entreprise de Rafael">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="Infotel"
+				tagline="Voici la présentation de l'entreprise dans laquelle j'ai travaillé durant ces deux dernières années."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/logo_infotel.png"
+					alt="Logo Infotel"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Qu'est-ce-qu'Infotel ?</h2>
+				<div class="content">
+					<p>
+						Infotel est une société française créée le 31 Décembre 1979 par les fondateurs : 
+						B. Lafforet, M. Koutchouk, J. Muller et A. Hallereau.
+					</p>
+					<p>
+						Elle est spécialisée dans les domaines du logiciles et des services informatiques.
+						Elle compte à ce jour environ 3500 collaborateurs.
+					</p>
+					<p>
+						Le président actuel d'Infotel est Bernard Lafforet.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Le rôle d'Infotel</h2>
+				<div class="content">
+					<p>
+						Fondé il y a plus de 40 ans, le groupe Infotel est aujourd'hui un acteur Européen majeur
+						de la tranformation numérique des entreprises.
+					</p>
+					<p>
+						Il développe ses savoir faire dans les secteurs de la Bnaque, de l'industrie, du transport
+						et du secteur public.
+					</p>
+				</div>
+			</section>
+			<section>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/Schema.png"
+					alt="Schema organisation de l'entreprise"
+				/>
+			</section>
+			<section>
+				<div class="content">
+					<p>
+						Les institutions publiques comme L'AMF, la Banque de France (la banque centrale national)
+						ou le conseil d'Etat, les entreprises privées comme PSA ou AIr France ainsi que les banques
+						tels que la BNP, la société générale, etc sont ce que l'on appelle des "grands comptes".
+					</p>
+					<p>
+						Elles ont des besoins informatiques auxquelles elles peuvent répondre soit en recrutant des 
+						informaticiens soit en faisant appel aux d'ESN, comme Sopra, Capgemini, ou Infotel.
+					</p>
+					<p>
+						Par exemple pour la Banque de France qui a beaucoup de besoins informatiques, louer les
+						services d'une ESN apporte des intérêts plus favorables en complément du recrutement
+						interne tels que : des coûts moins élevés, la durée limitée de la prestation et l'expertise
+						importante des fournisseurs.
+					</p>
+					<p>
+						Donc Infotel est composé de fondateurs et d'associés : un directeur général, trois
+						directeurs de Business Unit par secteur, des directeurs d'agence et d'ingénieurs d'affaires
+						et commercial. 
+					</p>
+					<p>
+						Ils travaillent soit dans le commerce, dans le recrutement, le secrétariat ou dans la comptabilité,
+						et ils ont une fonction de support.
+					</p>
+					<p>
+						Quant aux collaborateurs, ils ont une fonction de production.
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
